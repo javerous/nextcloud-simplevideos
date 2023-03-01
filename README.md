@@ -13,10 +13,10 @@ make && make appstore
 
 #### Install
 
-- Extract the `build/artifacts/appstore/nextcloud-simplevideos.tar.gz` file in your server `nextcloud/apps` directory.
+- Extract the `build/artifacts/appstore/simplevideos.tar.gz` file in your server `nextcloud/apps` directory.
     ```
     cd nextcloud/apps
-    tar xzvf /path/to/nextcloud-simplevideos.tar.gz
+    tar xzvf /path/to/simplevideos.tar.gz
     ```
 
 - Go to `https://<your-server>/nextcloud/index.php/settings/apps`
