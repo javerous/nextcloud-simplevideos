@@ -1,5 +1,5 @@
 # Simple Videos
-Use the native browser video player instead of Plyr player in Nextcloud to play videos.
+Use the native browser video player instead of Plyr video player in Nextcloud to play videos.
 
 
 
