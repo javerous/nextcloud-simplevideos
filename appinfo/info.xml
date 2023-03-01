@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <!--
+    SPDX-FileCopyrightText: Julien-Pierre Avérous <nextcloud@sourcemac.com>
+    SPDX-License-Identifier: CC0-1.0
+    -->
+    <id>simplevideos</id>
+    <name>Simple Videos</name>
+    <summary>Use the native browser video players instead of Plyr</summary>
+    <description><![CDATA[NextCloud use Plyr to play videos. It doesn&#x27;t work well on Safari / iOS. Use browsers native video player instead, as they usually work perfectly fine.]]></description>
+    <version>1.0.0</version>
+    <licence>agpl</licence>
+    <author mail="nextcloud@sourcemac.com" >Julien-Pierre Avérous</author>
+    <namespace>SimpleVideos</namespace>
+    <category>files</category>
+    <category>multimedia</category>
+    <bugs>https://github.com/javerous/nextcloud-simplevideos/issues</bugs>
+    <dependencies>
+	    <php min-version="8.0"></php>
+        <nextcloud min-version="25" max-version="25"/>
+    </dependencies>
+</info>
