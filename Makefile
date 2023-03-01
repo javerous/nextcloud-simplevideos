@@ -37,12 +37,14 @@
 #        "build": "node node_modules/gulp-cli/bin/gulp.js"
 #    },
 
-app_name=$(notdir $(CURDIR))
+app_name=simplevideos
 build_tools_directory=$(CURDIR)/build/tools
 source_build_directory=$(CURDIR)/build/artifacts/source
 source_package_name=$(source_build_directory)/$(app_name)
 appstore_build_directory=$(CURDIR)/build/artifacts/appstore
 appstore_package_name=$(appstore_build_directory)/$(app_name)
+tmp_source_directory=$(CURDIR)/.tmp/sources/$(app_name)
+tmp_appstore_directory=$(CURDIR)/.tmp/appstore/$(app_name)
 npm=$(shell which npm 2> /dev/null)
 composer=$(shell which composer 2> /dev/null)
 
@@ -115,49 +117,50 @@ dist:
 .PHONY: source
 source:
 	rm -rf $(source_build_directory)
+	rm -rf $(tmp_source_directory)
+
 	mkdir -p $(source_build_directory)
-	cd .. ; tar \
-	--exclude-vcs \
-	--exclude="$(app_name)/build" \
-	--exclude="$(app_name)/node_modules" \
-	--exclude="$(app_name)/*.log" \
-	--exclude="$(app_name)/js" \
-	--exclude="$(app_name)/node_modules" \
-	--exclude="$(app_name)/.*" \
-	--exclude="$(app_name)/composer.lock" \
-	--exclude="$(app_name)/vendor" \
-	--exclude="*.DS_Store" \
-	-cvzf $(source_package_name).tar.gz $(app_name)
+	mkdir -p $(tmp_source_directory)
+
+	cp -R "$(CURDIR)/LICENSES" $(tmp_source_directory)/
+	cp -R "$(CURDIR)/appinfo" $(tmp_source_directory)/
+	cp -R "$(CURDIR)/lib" $(tmp_source_directory)/
+	cp -R "$(CURDIR)/src" $(tmp_source_directory)/
+	cp -R "$(CURDIR)/Makefile" $(tmp_source_directory)/
+	cp -R "$(CURDIR)/README.md" $(tmp_source_directory)/
+	cp -R "$(CURDIR)/composer.json" $(tmp_source_directory)/
+	cp -R "$(CURDIR)/package.json" $(tmp_source_directory)/
+	cp -R "webpack.config.js" $(tmp_source_directory)/
+
+	cd $(tmp_source_directory)/.. ; tar --exclude '.DS_Store' -czvf $(source_package_name).tar.gz $(app_name)
+	
+	rm -rf $(tmp_source_directory)
 
 # Builds the source package for the app store, ignores php and js tests
 .PHONY: appstore
 appstore:
 	rm -rf $(appstore_build_directory)
+	rm -rf $(tmp_appstore_directory)
+
 	mkdir -p $(appstore_build_directory)
-	cd .. ; tar \
-	--exclude-vcs \
-	--exclude="$(app_name)/build" \
-	--exclude="$(app_name)/tests" \
-	--exclude="$(app_name)/Makefile" \
-	--exclude="$(app_name)/*.log" \
-	--exclude="$(app_name)/phpunit*xml" \
-	--exclude="$(app_name)/composer.*" \
-	--exclude="$(app_name)/js/node_modules" \
-	--exclude="$(app_name)/js/tests" \
-	--exclude="$(app_name)/js/test" \
-	--exclude="$(app_name)/js/*.log" \
-	--exclude="$(app_name)/js/package.json" \
-	--exclude="$(app_name)/js/bower.json" \
-	--exclude="$(app_name)/js/karma.*" \
-	--exclude="$(app_name)/js/protractor.*" \
-	--exclude="$(app_name)/package.json" \
-	--exclude="$(app_name)/bower.json" \
-	--exclude="$(app_name)/karma.*" \
-	--exclude="$(app_name)/protractor\.*" \
-	--exclude="$(app_name)/.*" \
-	--exclude="$(app_name)/js/.*" \
-	--exclude="$(app_name)/webpack.config.js" \
-	--exclude="$(app_name)/src" \
-	--exclude="$(app_name)/node_modules" \
-	--exclude="*.DS_Store" \
-	-cvzf $(appstore_package_name).tar.gz $(app_name)
+	mkdir -p $(tmp_appstore_directory)
+	
+	# cp "$(CURDIR)/AUTHORS.md" $(tmp_appstore_directory)/
+	# cp "$(CURDIR)/CHANGELOG.md" $(tmp_appstore_directory)/
+	# cp "$(CURDIR)/COPYING" $(tmp_appstore_directory)/
+	cp -R "$(CURDIR)/LICENSES" $(tmp_appstore_directory)/
+	cp "$(CURDIR)/README.md" $(tmp_appstore_directory)/
+	cp -R "$(CURDIR)/appinfo" $(tmp_appstore_directory)/
+	# cp -R "$(CURDIR)/css" $(tmp_appstore_directory)/
+	# cp -R "$(CURDIR)/docs" $(tmp_appstore_directory)/
+	# cp -R "$(CURDIR)/img" $(tmp_appstore_directory)/
+	cp -R "$(CURDIR)/js" $(tmp_appstore_directory)/
+	# cp -R "$(CURDIR)/l10n" $(tmp_appstore_directory)/
+	cp -R "$(CURDIR)/lib" $(tmp_appstore_directory)/
+	# cp -R "$(CURDIR)/screenshots" $(tmp_appstore_directory)/
+	# cp -R "$(CURDIR)/templates" $(tmp_appstore_directory)/
+	cp -R "$(CURDIR)/vendor" $(tmp_appstore_directory)/
+
+	cd $(tmp_appstore_directory)/.. ; tar --exclude '.DS_Store' -czvf $(appstore_package_name).tar.gz $(app_name)
+
+	rm -rf $(tmp_appstore_directory)
