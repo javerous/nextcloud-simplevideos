@@ -1,7 +1,7 @@
 {
   "name": "simplevideos",
   "description": "Use the native browser video player instead of Plyr video player",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Julien-Pierre Avérous <nextcloud@sourcemac.com>",
   "contributors": [],
   "bugs": {
