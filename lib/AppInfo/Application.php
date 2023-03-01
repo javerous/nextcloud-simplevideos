@@ -25,12 +25,12 @@ class Application extends App {
 		
 		// To inject the script in files app.
 		$eventDispatcher->addListener(LoadAdditionalScriptsEvent::class, static function() {
-			Util::addScript(self::APP_ID, 'simplevideos-main', 'files');
+			Util::addScript(self::APP_ID, 'simplevideos-main', 'viewer');
 		});
 		
 		// To inject the script in files_sharing app.
 		$eventDispatcher->addListener(BeforeTemplateRenderedEvent::class, static function() {
-			Util::addScript(self::APP_ID, 'simplevideos-main', 'files');
+			Util::addScript(self::APP_ID, 'simplevideos-main', 'viewer');
 		});
 	}
 	
