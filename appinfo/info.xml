@@ -7,8 +7,8 @@
     -->
     <id>simplevideos</id>
     <name>Simple Videos</name>
-    <summary>Use the native browser video players instead of Plyr</summary>
-    <description><![CDATA[NextCloud use Plyr to play videos. It doesn&#x27;t work well on Safari / iOS. Use browsers native video player instead, as they usually work perfectly fine.]]></description>
+    <summary>Use the native browser video player instead of Plyr video player</summary>
+    <description><![CDATA[NextCloud use Plyr player to play videos. It doesn&#x27;t work well on Safari / iOS. This app force to use browsers native video player instead.]]></description>
     <version>1.0.0</version>
     <licence>agpl</licence>
     <author mail="nextcloud@sourcemac.com" >Julien-Pierre Avérous</author>
