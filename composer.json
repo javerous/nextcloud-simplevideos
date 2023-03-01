@@ -1,0 +1,11 @@
+{
+	"name": "nextcloud/simplevideos",
+	"description": "Use the native browser video players instead of Plyr",
+	"type": "project",
+	"license": "AGPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "Julien-Pierre Avérous"
+		}
+	]
+}
