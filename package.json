@@ -1,7 +1,7 @@
 {
   "name": "simplevideos",
   "description": "Use the native browser video player instead of Plyr video player",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Julien-Pierre Avérous <nextcloud@sourcemac.com>",
   "contributors": [],
   "bugs": {
@@ -16,15 +16,15 @@
     "serve": "webpack --node-env development serve --progress"
   },
   "dependencies": {
-    "@nextcloud/vue": "^5.4.0",
-	"@nextcloud/logger": "^2.3.0",
-    "vue": "^2.7.0"
+    "@nextcloud/vue": "^7.8.3",
+	"@nextcloud/logger": "^2.5.0",
+    "vue": "^2.7.13"
   },
   "engines": {
-    "node": "^16.0.0",
-    "npm": "^7.0.0 || ^8.0.0"
+    "node": "^16.0.0 || ^16.13.1",
+    "npm": "^7.0.0 || ^8.0.0 || ^9.6.2"
   },
   "devDependencies": {
-    "@nextcloud/webpack-vue-config": "^5.2.1"
+    "@nextcloud/webpack-vue-config": "^5.5.0"
   }
 }
