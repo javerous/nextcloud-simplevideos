@@ -9,7 +9,7 @@
     <name>Simple Videos</name>
     <summary>Use the native browser video player instead of Plyr video player</summary>
     <description><![CDATA[NextCloud use Plyr player to play videos. It doesn&#x27;t work well on Safari / iOS. This app force to use browsers native video player instead.]]></description>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <licence>agpl</licence>
     <author mail="nextcloud@sourcemac.com" >Julien-Pierre Avérous</author>
     <namespace>SimpleVideos</namespace>
@@ -18,6 +18,6 @@
     <bugs>https://github.com/javerous/nextcloud-simplevideos/issues</bugs>
     <dependencies>
 	    <php min-version="8.0"></php>
-        <nextcloud min-version="25" max-version="25"/>
+        <nextcloud min-version="25" max-version="27"/>
     </dependencies>
 </info>
