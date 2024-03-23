@@ -16,13 +16,12 @@
     "serve": "webpack --node-env development serve --progress"
   },
   "dependencies": {
-    "@nextcloud/vue": "^7.8.3",
-	"@nextcloud/logger": "^2.5.0",
-    "vue": "^2.7.13"
+    "@nextcloud/vue": ">=8.0.0",
+    "@nextcloud/logger": ">=2.7.0"
   },
   "engines": {
-    "node": "^16.0.0 || ^16.13.1",
-    "npm": "^7.0.0 || ^8.0.0 || ^9.6.2"
+    "node": ">=20.0.0",
+    "npm": ">=9.6.2"
   },
   "devDependencies": {
     "@nextcloud/webpack-vue-config": "^5.5.0"
